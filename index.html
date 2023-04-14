@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Hogwarts</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Hogwarts Student List</h1>
+
+    <p>
+      Filter:
+      <button class="filter" data-action="filter" data-filter="*">All</button>
+      <button class="filter" data-action="filter" data-filter="slytherin">
+        Slytherin
+      </button>
+      <button class="filter" data-action="filter" data-filter="hufflepuff">
+        Hufflepuff
+      </button>
+      <button class="filter" data-action="filter" data-filter="ravenclaw">
+        Ravenclaw
+      </button>
+      <button class="filter" data-action="filter" data-filter="gryffindor">
+        Gryffindor
+      </button>
+      <button class="filter" data-action="filter" data-filter="expelled">
+        Expelled Students
+      </button>
+
+      <input type="text" id="search" placeholder="Search for students..." />
+      <button id="searchButton">Search</button>
+    </p>
+    <p>Number of students in each house:</p>
+    <ul id="house-counts"></ul>
+    <p>
+      Total number of students (not expelled):
+      <span id="num-not-expelled"></span>
+    </p>
+    <p>Number of students expelled: <span id="num-expelled"></span></p>
+    <p>
+      Number of students currently displayed: <span id="num-displayed"></span>
+    </p>
+
+    <hr />
+
+    <table id="list">
+      <thead>
+        <tr id="sorting">
+          <th data-action="sort" data-sort-direction="asc" data-sort="prefect">
+            Prefect
+          </th>
+          <th data-action="sort" data-sort-direction="asc" data-sort="inqsquad">
+            Inq Squad
+          </th>
+          <th
+            data-action="sort"
+            data-sort-direction="asc"
+            data-sort="firstname"
+          >
+            First Name
+          </th>
+          <th
+            data-action="sort"
+            data-sort-direction="asc"
+            data-sort="middlename"
+          >
+            Middle Name
+          </th>
+          <th data-action="sort" data-sort-direction="asc" data-sort="lastname">
+            Last Name
+          </th>
+          <th data-action="sort" data-sort-direction="asc" data-sort="gender">
+            Gender
+          </th>
+          <th data-action="sort" data-sort-direction="asc" data-sort="house">
+            House
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- student template will be copied and inserted here -->
+      </tbody>
+    </table>
+    <!-- table for expelled students -->
+
+    <!-- popup window for student details -->
+    <section id="popup">
+      <article id="popup-article">
+        <div id="luk"></div>
+        <section class="popup-1"><img class="picture" src="" alt="" /></section>
+        <section class="popup-2">
+          <h1 class="house"></h1>
+          <h2 class="firstname"></h2>
+          <h2 class="middlename"></h2>
+          <h2 class="lastname"></h2>
+          <h3 class="bloodstatus"></h3>
+          <h3 class="expelled"></h3>
+          <h3 class="prefect"></h3>
+          <h3 class="inqsquad"></h3>
+          <div class="popup-buttons">
+            <button
+              id="expel-button"
+              data-action="expel"
+              data-student="${student.firstname}"
+            >
+              Expel
+            </button>
+          </div>
+        </section>
+      </article>
+    </section>
+
+    <template id="student">
+      <tr class="student-container">
+        <td data-field="prefect"></td>
+        <td data-field="inqsquad"></td>
+        <td data-field="firstname">FIRST NAME</td>
+        <td data-field="middlename">MIDDLE NAME</td>
+        <td data-field="lastname">LAST NAME</td>
+        <td data-field="gender">GENDER</td>
+        <td data-field="house">HOUSE</td>
+      </tr>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+  <footer>
+    <button id="hack-button" data-action="hack">HACK THE LIST!</button>
+  </footer>
+</html>
